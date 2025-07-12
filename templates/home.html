@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home – The Fudge Kettle{% endblock %}
+
+{% block hero %}
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Handcrafted Fudge Delivered to Your Door</h1>
+      <a href="/shop/" class="cta">Start Shopping</a>
+    </div>
+  </section>
+{% endblock %}
+
+{% block content %}
+  <h2>Featured Fudge</h2>
+  <div class="products">
+    {% for product in featured %}  
+      <div class="product-card">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+        <h3>{{ product.name }}</h3>
+        <a href="{% url 'product_detail' product.pk %}" class="btn">View</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
