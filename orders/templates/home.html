@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="featured text-center">
+  <h1>Welcome to Fudge Kettle 🍫</h1>
+  <p>Handcrafted fudge, made fresh daily with love and premium ingredients.</p>
+  <img src="{% static 'images/fudge_banner.jpg' %}" alt="Fudge Banner" class="rounded" />
+  <br><br>
+  <a href="{% url 'products' %}" class="btn">Start Shopping</a>
+</div>
+{% endblock %}
+
+

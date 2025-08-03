@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} | The Fudge Kettle{% endblock %}
+
+{% block content %}
+  <div class="product-detail">
+    {% if product.image %}
+      <img src="{{ product.image.url }}" alt="{{ product.name }}" class="detail-image" />
+    {% endif %}
+    <h2>{{ product.name }}</h2>
+    {% if product.stock > 0 %}
+      <span class="badge-in-stock">In Stock</span>
+    {% else %}
+      <span class="badge-out-of-stock">Out of Stock</span>
+    {% endif %}
+    <span class="flavor-badge">{{ product.flavor }}</span>
+    <p class="price">${{ product.price }}</p>
+    <p class="description">{{ product.description }}</p>
+    <form action="{% url 'add-to-cart' product.pk %}" method="post">
+      {% csrf_token %}
+      <input type="number" name="quantity" value="1" min="1" class="qty-input" />
+      <button type="submit" class="btn--chocolate">Add to Cart</button>
+    </form>
+  </div>
+{% endblock %}

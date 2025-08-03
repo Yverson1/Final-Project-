@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.env
+*.DS_Store
+
+# Virtual environment
+venv/
+env/
+
+# Media uploads
+/media/
+
+# Django static files
+staticfiles/
+static/
+
+# Coverage and test artifacts
+htmlcov/
+.coverage
+.tox/
+nox/
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (if applicable)
+node_modules/
+
+# Docker
+.docker/
+*.pid
+
+# System files
+Thumbs.db
+

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Checkout – The Fudge Kettle{% endblock %}
+{% block content %}
+  <h1>Checkout</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+      {{ form.first_name.label_tag }}<br>
+      {{ form.first_name }}
+    </div>
+    <div>
+      {{ form.last_name.label_tag }}<br>
+      {{ form.last_name }}
+    </div>
+    <div>
+      {{ form.email.label_tag }}<br>
+      {{ form.email }}
+    </div>
+    <div>
+      {{ form.address.label_tag }}<br>
+      {{ form.address }}
+    </div>
+    <div>
+      {{ form.pickup_datetime.label_tag }}<br>
+      {{ form.pickup_datetime }}
+    </div>
+    <button type="submit" class="btn">Place Order</button>
+  </form>
+{% endblock %}
+

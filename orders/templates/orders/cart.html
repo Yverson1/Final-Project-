@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Cart | The Fudge Kettle{% endblock %}
+
+{% block content %}
+  <h2>Your Shopping Cart</h2>
+  {% if cart_items %}
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.product.price }}</td>
+            <td>${{ item.get_total_price }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="cart-grand-total">Grand Total: ${{ cart.get_grand_total }}</p>
+    <a href="{% url 'checkout' %}" class="btn--chocolate">Proceed to Checkout</a>
+  {% else %}
+    <p>Your cart is currently empty.</p>
+    <a href="{% url 'product-list' %}" class="btn--chocolate">Continue Shopping</a>
+  {% endif %}
+{% endblock %}
